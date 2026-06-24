@@ -1,0 +1,82 @@
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Yatra</h3>
+                <p>Your trusted partner for memorable travel experiences across India.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/terms">Terms & Conditions</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/faq">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@yatra.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Yatra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Travel Assistant Chatbot -->
+    <div class="chat-widget">
+        <button id="chatToggle" class="chat-toggle">
+            <i class="fas fa-comments"></i>
+            <span>Travel Assistant</span>
+        </button>
+        <div id="chatbox" class="chatbox">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i class="fas fa-robot"></i>
+                    <span>Yatra AI Assistant</span>
+                </div>
+                <button id="minimizeChat" class="minimize-chat">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <i class="fas fa-robot bot-icon"></i>
+                    <div class="message-content">
+                        Hello! I'm your Yatra travel assistant. I can help you with:
+                        <ul class="quick-options">
+                            <li><button onclick="askBot('plan a trip')">Plan a Trip</button></li>
+                            <li><button onclick="askBot('find accommodations')">Find Accommodations</button></li>
+                            <li><button onclick="askBot('transportation options')">Transportation Options</button></li>
+                            <li><button onclick="askBot('local attractions')">Local Attractions</button></li>
+                            <li><button onclick="askBot('travel tips')">Travel Tips</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your question here...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/chatbot.js"></script>
+    <% if (typeof scriptBlock !== 'undefined' && scriptBlock) { %>
+        <%- scriptBlock %>
+    <% } %>
+</body>
+</html>

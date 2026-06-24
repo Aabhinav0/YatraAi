@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'Yatra - Your Journey Partner' %></title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <% if (typeof stylesheets !== 'undefined' && stylesheets && stylesheets.length) { %>
+        <% stylesheets.forEach(function(sheet) { %>
+            <link rel="stylesheet" href="<%= sheet %>">
+        <% }); %>
+    <% } %>
+    <% if (typeof styleBlock !== 'undefined' && styleBlock) { %>
+        <%- styleBlock %>
+    <% } %>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1><i class="fas fa-map"></i> Yatra <i class="fas fa-plane"></i></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="<%= (typeof activePage !== 'undefined' && activePage === 'home') ? 'active' : '' %>">Home</a></li>
+                <li><a href="/destinations" class="<%= (typeof activePage !== 'undefined' && activePage === 'destinations') ? 'active' : '' %>">Destinations</a></li>
+                <li><a href="/packages" class="<%= (typeof activePage !== 'undefined' && activePage === 'packages') ? 'active' : '' %>">Packages</a></li>
+                <li><a href="/services" class="<%= (typeof activePage !== 'undefined' && activePage === 'services') ? 'active' : '' %>">Services</a></li>
+                <li><a href="/contact" class="<%= (typeof activePage !== 'undefined' && activePage === 'contact') ? 'active' : '' %>">Contact</a></li>
+                <li><a href="https://ardemo123.netlify.app/">AR</a></li>
+                <li id="authButtons">
+                    <a href="/login" class="login-btn">Login</a>
+                    <a href="/signup" class="signup-btn">Sign Up</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <div class="user-profile">
+                        <span id="userName">User</span>
+                        <button onclick="logout()" class="logout-btn">Logout</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>

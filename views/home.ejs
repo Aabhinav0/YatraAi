@@ -1,0 +1,298 @@
+<%- include('partials/header', { title: 'Yatra - Your Journey Partner', activePage: 'home' }) %>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <video autoplay muted loop class="hero-video" style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: 1;
+                    filter: brightness(0.7);
+                ">
+                    <source src="/css/videos/video2.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-overlay" style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+                    z-index: 2;
+                "></div>
+                <div style="
+                    position: relative;
+                    z-index: 3;
+                    text-align: center;
+                    color: white;
+                    width: 100%;
+                ">
+                    <h1>Discover Your Next Adventure</h1>
+                    <p>Plan your perfect journey with personalized travel experiences</p>
+                    <form id="searchForm" class="search-box">
+                        <input type="text" id="searchInput" placeholder="Where do you want to go?" required>
+                        <button type="submit" class="search-btn">Search</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="searchResults" class="search-results" style="display: none;">
+            <div class="search-results-container">
+                <h2>Search Results</h2>
+                <div id="resultsGrid" class="results-grid">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+                <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Searching for amazing destinations...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Why Choose Yatra?</h2>
+            <div class="feature-cards">
+                <a href="/destinations" style="text-decoration: none; color: rgb(21, 20, 20);">
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Best Destinations</h3>
+                    <p>Handpicked locations for unforgettable experiences</p>
+                </div>
+                </a>
+                <div class="feature-card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Best Prices</h3>
+                    <p>Competitive rates and exclusive travel deals</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance for your journey</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="popular-destinations">
+            <h2>Popular Destinations</h2>
+            <div class="destination-cards">
+                <div class="destination-card">
+                    <img src="/css/images/goa.jpg" alt="Goa">
+                    <div class="card-content">
+                        <h3>Goa</h3>
+                        <p>Beach Paradise</p>
+                        <div class="navigation-options">
+                            <a href="https://www.google.com/maps/dir//Goa" target="_blank" class="nav-btn directions-btn">
+                                <i class="fas fa-directions"></i>
+                                Get Directions
+                            </a>
+                            <button class="nav-btn travel-info-btn" data-location="goa">
+                                <i class="fas fa-info-circle"></i>
+                                Travel Info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="css/images/himalayan.jpg" alt="Himalayas">
+                    <div class="card-content">
+                        <h3>Himalayas</h3>
+                        <p>Mountain Adventure</p>
+                        <div class="navigation-options">
+                            <a href="https://www.google.com/maps/dir//Himalayas" target="_blank" class="nav-btn directions-btn">
+                                <i class="fas fa-directions"></i>
+                                Get Directions
+                            </a>
+                            <button class="nav-btn travel-info-btn" data-location="himalayas">
+                                <i class="fas fa-info-circle"></i>
+                                Travel Info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="css/images/rajasthan.jpg" alt="Rajasthan">
+                    <div class="card-content">
+                        <h3>Rajasthan</h3>
+                        <p>Royal Heritage</p>
+                        <div class="navigation-options">
+                            <a href="https://www.google.com/maps/dir//Rajasthan" target="_blank" class="nav-btn directions-btn">
+                                <i class="fas fa-directions"></i>
+                                Get Directions
+                            </a>
+                            <button class="nav-btn travel-info-btn" data-location="rajasthan">
+                                <i class="fas fa-info-circle"></i>
+                                Travel Info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <a href="/Hotel-Booking" style="text-decoration: none; color: rgb(21, 20, 20);">
+                <div class="service-card">
+                    <i class="fas fa-hotel"></i>
+                    <h3>Hotel Booking</h3>
+                </div>
+                </a>
+
+                <a href="/Flight-Booking" style="text-decoration: none; color: rgb(21, 20, 20);">
+                <div class="service-card">
+                    <i class="fas fa-plane"></i>
+                    <h3>Flight Booking</h3>
+                </div>
+                </a>
+
+                 <a href="/Car-Rentel" style="text-decoration: none; color: rgb(21, 20, 20);">
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Car Rental</h3>
+                </div>
+                </a>
+
+                <a href="/Tour-Packages" style="text-decoration: none; color: rgb(21, 20, 20);">
+                <div class="service-card">
+                    <i class="fas fa-map"></i>
+                    <h3>Tour Packages</h3>
+                </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const searchInput = document.getElementById('searchInput').value.trim();
+            const resultsSection = document.getElementById('searchResults');
+            const resultsGrid = document.getElementById('resultsGrid');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            if (!searchInput) {
+                alert('Please enter a destination to search');
+                return;
+            }
+
+            // Show loading spinner
+            resultsSection.style.display = 'block';
+            resultsGrid.innerHTML = '';
+            loadingSpinner.style.display = 'flex';
+
+            try {
+                const response = await fetch(`/search?query=${encodeURIComponent(searchInput)}`);
+                const data = await response.json();
+
+                // Hide loading spinner
+                loadingSpinner.style.display = 'none';
+
+                if (data.results && data.results.length > 0) {
+                    // Scroll to results section
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+
+                    data.results.forEach(result => {
+                        const resultCard = document.createElement('div');
+                        resultCard.className = 'result-card';
+                        
+                        // Add type-specific class for styling
+                        if (result.type) {
+                            resultCard.classList.add(`result-type-${result.type}`);
+                        }
+
+                        resultCard.innerHTML = `
+                            <div class="result-image">
+                                <img src="${result.image}" alt="${result.title}" 
+                                    onerror="this.onerror=null; this.src='https://loremflickr.com/800/600/travel,landmark?random=' + Math.floor(Math.random() * 1000)"
+                                    loading="lazy">
+                                ${result.type ? `<span class="result-type-badge">${result.type}</span>` : ''}
+                            </div>
+                            <div class="result-content">
+                                <h3>${result.title}</h3>
+                                <ul class="imp-points" style="margin: 0.5rem 0 1rem 1.2rem; padding: 0; text-align: left; list-style-type: disc;">
+                                    ${result.impPoints.map(point => `<li style="font-size: 0.9rem; color: #4a5568; margin-bottom: 0.25rem; line-height: 1.4;">${point}</li>`).join('')}
+                                </ul>
+                                ${result.coordinates ? `
+                                    <div class="location-info" style="margin-top: 0.5rem; margin-bottom: 1rem; color: #666; font-size: 0.9rem;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Location: ${result.coordinates.lat}, ${result.coordinates.lon}</span>
+                                    </div>
+                                ` : ''}
+                                <div class="result-actions" style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <a href="https://www.google.com/maps/dir/Current+Location/${encodeURIComponent(result.title)}" 
+                                       target="_blank" 
+                                       class="nav-btn directions-btn">
+                                        <i class="fas fa-directions"></i>
+                                        Get Directions
+                                    </a>
+                                    <a href="${result.url}" target="_blank" class="learn-more-btn">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Learn More
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+
+
+
+                        resultsGrid.appendChild(resultCard);
+
+                        // Add hover effect animation
+                        resultCard.addEventListener('mouseenter', () => {
+                            resultCard.style.transform = 'translateY(-10px)';
+                            resultCard.style.transition = 'transform 0.3s ease';
+                        });
+                        resultCard.addEventListener('mouseleave', () => {
+                            resultCard.style.transform = 'translateY(0)';
+                        });
+                    });
+                } else {
+                    resultsGrid.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p>No monuments or attractions found for "${searchInput}". Try another search term.</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Search error:', error);
+                loadingSpinner.style.display = 'none';
+                resultsGrid.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #dc2626; margin-bottom: 1rem;"></i>
+                        <p>An error occurred while searching. Please try again.</p>
+                    </div>
+                `;
+            }
+        });
+
+        // Add input validation
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const input = e.target;
+            const submitBtn = input.form.querySelector('button[type="submit"]');
+            submitBtn.disabled = !input.value.trim();
+        });
+
+
+
+        // Check for search query parameter in URL on page load
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlQuery = urlParams.get('search');
+        if (urlQuery) {
+            document.getElementById('searchInput').value = urlQuery;
+            setTimeout(() => {
+                document.getElementById('searchForm').dispatchEvent(new Event('submit'));
+            }, 100);
+        }
+    </script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,90 @@
+<%- include('partials/header', {
+    title: 'Booking Confirmed - Yatra',
+    stylesheets: ['/css/booking-confirmation.css']
+}) %>
+
+    <main class="confirmation-page">
+        <div class="confirmation-container">
+            <div class="success-icon-wrapper">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p class="sub-message">Thank you for booking with Yatra. Your payment has been successfully processed.</p>
+            
+            <div class="details-card">
+                <h3>Booking Information</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Service / Package</span>
+                    <span class="detail-val" id="confService">Golden Triangle Tour</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Duration</span>
+                    <span class="detail-val" id="confDuration">5 Days / 4 Nights</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Travelers</span>
+                    <span class="detail-val" id="confTravelers">1 Adult</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Travel Dates</span>
+                    <span class="detail-val" id="confDates">TBD</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total Amount Paid</span>
+                    <span class="detail-val" id="confAmount">₹0</span>
+                </div>
+            </div>
+
+            <div class="email-alert">
+                <i class="far fa-envelope-open"></i>
+                <div>
+                    <strong>Email Confirmation Sent</strong>
+                    <div id="emailTarget">We've sent a detailed receipt and itinerary to your email.</div>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <a href="/" class="primary-btn">Go to Homepage</a>
+                <a href="/packages" class="secondary-btn">Explore Packages</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const confirmedBooking = JSON.parse(sessionStorage.getItem('confirmedBooking'));
+            if (confirmedBooking) {
+                document.getElementById('confService').textContent = confirmedBooking.service || 'Yatra Custom Tour';
+                document.getElementById('confDuration').textContent = confirmedBooking.duration || 'N/A';
+                
+                const travelers = confirmedBooking.travelers || 1;
+                document.getElementById('confTravelers').textContent = travelers === 1 ? '1 Adult' : `${travelers} Adults`;
+                
+                const start = confirmedBooking.startDate ? new Date(confirmedBooking.startDate).toLocaleDateString() : '';
+                const end = confirmedBooking.endDate ? new Date(confirmedBooking.endDate).toLocaleDateString() : '';
+                document.getElementById('confDates').textContent = start && end ? `${start} to ${end}` : 'N/A';
+                
+                // Format price nicely
+                const amt = parseFloat(confirmedBooking.amount);
+                const tax = amt * 0.10; // Match 10% tax in payment.html
+                const totalAmt = amt + tax;
+                document.getElementById('confAmount').textContent = '₹' + Math.round(totalAmt).toLocaleString('en-IN');
+                
+                if (confirmedBooking.email) {
+                    document.getElementById('emailTarget').textContent = `We've sent a detailed receipt and itinerary to ${confirmedBooking.email}.`;
+                }
+                
+                // Clean up confirmed booking after displaying
+                sessionStorage.removeItem('confirmedBooking');
+            } else {
+                // If direct nav without booking, fall back to default summary
+                document.getElementById('confService').textContent = 'Custom Vacation Tour';
+                document.getElementById('confDuration').textContent = 'Flexible Duration';
+                document.getElementById('confTravelers').textContent = '1 Adult';
+                document.getElementById('confDates').textContent = 'Dates selected by agent';
+                document.getElementById('confAmount').textContent = '₹0 (Demo)';
+            }
+        });
+    </script>
+
+<%- include('partials/footer') %>

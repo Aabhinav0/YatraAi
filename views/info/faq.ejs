@@ -1,0 +1,115 @@
+<%- include('../partials/header', { title: 'FAQs - Yatra', stylesheets: ['/css/faq.css'] }) %>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Find answers to common questions about our services</p>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="faqSearch" placeholder="Search your question here...">
+                    <button type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-categories">
+                    <button class="category-btn active" data-category="all">All Questions</button>
+                    <button class="category-btn" data-category="bookings">Bookings</button>
+                    <button class="category-btn" data-category="payments">Payments</button>
+                    <button class="category-btn" data-category="cancellations">Cancellations</button>
+                    <button class="category-btn" data-category="services">Services</button>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-item" data-category="bookings">
+                        <div class="faq-question">
+                            <h3>How do I make a booking?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can make a booking through our website by:</p>
+                            <ul>
+                                <li>Selecting your desired service (flights, hotels, packages)</li>
+                                <li>Choosing your preferences and dates</li>
+                                <li>Following the simple booking process</li>
+                                <li>Creating an account or logging in to complete the booking</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="payments">
+                        <div class="faq-question">
+                            <h3>What payment methods do you accept?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept various secure payment methods including:</p>
+                            <ul>
+                                <li>Credit/Debit Cards</li>
+                                <li>Net Banking</li>
+                                <li>UPI</li>
+                                <li>Popular Digital Wallets</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="cancellations">
+                        <div class="faq-question">
+                            <h3>What is your cancellation policy?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Cancellation policies vary depending on the service and provider. Generally, cancellations made 48 hours before the service date are eligible for a full refund. Please check specific terms during booking.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="services">
+                        <div class="faq-question">
+                            <h3>How can I modify my booking?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can modify your booking through your account dashboard or by contacting our customer support. Modifications may be subject to availability and additional charges.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="services">
+                        <div class="faq-question">
+                            <h3>Do you offer travel insurance?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer travel insurance options during the booking process. We recommend getting travel insurance to protect against unforeseen circumstances.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="services">
+                        <div class="faq-question">
+                            <h3>How can I contact customer support?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our customer support is available 24/7 through multiple channels: phone, email, and live chat. You can also visit our contact page for more information.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="still-have-questions">
+                    <div class="question-card">
+                        <i class="fas fa-comments"></i>
+                        <h2>Still Have Questions?</h2>
+                        <p>Our support team is here to help you 24/7</p>
+                        <a href="/contact" class="contact-btn">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<%- include('../partials/footer', {
+    scriptBlock: `<script src="/js/faq.js"></script>`
+}) %>
